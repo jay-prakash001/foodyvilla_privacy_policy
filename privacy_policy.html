@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0c0a07;
+      --surface: #161410;
+      --card: #1e1b16;
+      --border: #2e2a22;
+      --gold: #c8963e;
+      --gold-dim: #8a6428;
+      --cream: #f0e8d8;
+      --muted: #7a7062;
+      --text: #d4cbbf;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      padding: 80px 24px 64px;
+      text-align: center;
+      overflow: hidden;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #2a1f0a 0%, var(--bg) 70%);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 200px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .fork-knife { font-size: 2.2rem; margin-bottom: 20px; display: block; }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    header h1 span { color: var(--gold); }
+
+    .app-name {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .meta { margin-top: 18px; font-size: 0.82rem; color: var(--muted); font-weight: 300; }
+
+    /* TOC */
+    nav.toc {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      justify-content: center;
+    }
+
+    nav.toc a {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav.toc a:hover { color: var(--gold); }
+
+    /* MAIN */
+    main { max-width: 780px; margin: 0 auto; padding: 60px 24px 100px; }
+
+    /* INTRO */
+    .intro {
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      background: var(--card);
+      border-radius: 0 8px 8px 0;
+      padding: 22px 26px;
+      margin-bottom: 56px;
+      font-size: 0.94rem;
+      font-weight: 300;
+    }
+
+    .intro strong { color: var(--cream); font-weight: 500; }
+
+    /* FACTS STRIP */
+    .facts-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+
+    .fact {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+
+    .fact-icon { font-size: 1.5rem; margin-bottom: 8px; display: block; }
+    .fact-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); font-weight: 500; margin-bottom: 4px; }
+    .fact-value { font-size: 0.82rem; color: var(--text); font-weight: 300; }
+
+    /* SECTIONS */
+    .section { margin-bottom: 52px; padding-bottom: 52px; border-bottom: 1px solid var(--border); }
+    .section:last-of-type { border-bottom: none; }
+
+    .section-head { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+
+    .sec-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold-dim);
+      min-width: 36px;
+      line-height: 1;
+    }
+
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .section p { font-weight: 300; font-size: 0.95rem; margin-bottom: 12px; }
+    .section p:last-child { margin-bottom: 0; }
+
+    /* TECH PILLS */
+    .tech-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+
+    .pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    /* DATA TABLE */
+    .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.88rem; }
+
+    .data-table thead tr { background: var(--surface); border-bottom: 1px solid var(--gold-dim); }
+
+    .data-table th {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 300;
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    .tag-no   { background: #0d2b0d; color: #5aab5a; border: 1px solid #1a4a1a; }
+    .tag-temp { background: #2b1a08; color: #c8963e; border: 1px solid #4a3010; }
+    .tag-yes  { background: #1a1020; color: #9b7ec8; border: 1px solid #2e1a40; }
+
+    /* LIST */
+    ul.plist { list-style: none; margin: 14px 0; }
+
+    ul.plist li {
+      padding: 9px 0 9px 20px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      font-size: 0.93rem;
+      font-weight: 300;
+    }
+
+    ul.plist li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+    ul.plist li:last-child { border-bottom: none; }
+
+    /* HIGHLIGHT BOX */
+    .hl-box {
+      background: var(--card);
+      border: 1px solid var(--gold-dim);
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    .hl-box strong { color: var(--cream); font-weight: 500; }
+    .hl-box a { color: var(--gold); }
+
+    /* RIGHTS GRID */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .right-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+    .right-card strong { display: block; font-size: 0.84rem; font-weight: 500; color: var(--cream); margin-bottom: 4px; }
+    .right-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; margin: 0; }
+
+    /* CONTACT */
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 30px;
+      margin-top: 18px;
+    }
+
+    .contact-box p { font-size: 0.92rem; line-height: 2; }
+    .contact-box a { color: var(--gold); text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    footer strong { color: var(--text); }
+
+    @media (max-width: 560px) {
+      .data-table { font-size: 0.78rem; }
+      .data-table th, .data-table td { padding: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="fork-knife">🍽️</span>
+  <h1>Privacy <span>Policy</span></h1>
+  <span class="app-name">[Your Restaurant App Name]</span>
+  <p class="meta">Effective Date: March 16, 2026 &nbsp;·&nbsp; Last Updated: March 16, 2026</p>
+</header>
+
+<nav class="toc">
+  <a href="#overview">Overview</a>
+  <a href="#collected">Data Collected</a>
+  <a href="#nostore">What We Don't Store</a>
+  <a href="#tech">Technologies</a>
+  <a href="#notifications">Notifications</a>
+  <a href="#thirdparty">Third Parties</a>
+  <a href="#retention">Retention</a>
+  <a href="#security">Security</a>
+  <a href="#children">Children</a>
+  <a href="#rights">Your Rights</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main>
+
+  <div class="intro">
+    This Privacy Policy explains how <strong>[Your Company Name]</strong> ("we," "us," or "our") handles information when you use the <strong>[App Name]</strong> Android application available on Google Play. We are committed to transparency — and in the case of this restaurant app, that means collecting very little. Please read this policy carefully before using the App.
+  </div>
+
+  <div class="facts-strip">
+    <div class="fact">
+      <span class="fact-icon">📵</span>
+      <div class="fact-label">Phone Numbers</div>
+      <div class="fact-value">Used for orders only, never stored</div>
+    </div>
+    <div class="fact">
+      <span class="fact-icon">🔔</span>
+      <div class="fact-label">Notifications</div>
+      <div class="fact-value">Saved locally on your device only</div>
+    </div>
+    <div class="fact">
+      <span class="fact-icon">🚫</span>
+      <div class="fact-label">Ads</div>
+      <div class="fact-value">None. No ad tracking ever.</div>
+    </div>
+    <div class="fact">
+      <span class="fact-icon">💰</span>
+      <div class="fact-label">Data Sales</div>
+      <div class="fact-value">We never sell your data</div>
+    </div>
+  </div>
+
+  <!-- 1. OVERVIEW -->
+  <section class="section" id="overview">
+    <div class="section-head"><span class="sec-num">01</span><h2>Overview</h2></div>
+    <p>This App is a restaurant ordering and information platform. It uses an embedded WebView to deliver our restaurant's web interface, Firebase Cloud Messaging (FCM) for push notifications, Cloud Firestore for server-side operational data, a local Room database to store your notification history on-device, and a Splash Screen for branding on launch.</p>
+    <p>Our overall approach is <strong style="color:var(--cream)">minimal data collection</strong>. We do not build user profiles, serve advertisements, or sell data to any third party.</p>
+  </section>
+
+  <!-- 2. DATA WE COLLECT -->
+  <section class="section" id="collected">
+    <div class="section-head"><span class="sec-num">02</span><h2>Information We Collect</h2></div>
+    <p>Below is every category of data the App touches:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Purpose</th>
+          <th>Stored?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>FCM Device Token</strong><br><span style="font-size:0.8rem;color:var(--muted)">Random push token generated by Firebase</span></td>
+          <td>Route push notifications (order updates, promotions) to your device</td>
+          <td><span class="tag tag-yes">Not stored</span></td>
+        </tr>
+        <tr>
+          <td><strong>Notification Records</strong><br><span style="font-size:0.8rem;color:var(--muted)">Title, body, timestamp of received notifications</span></td>
+          <td>Display notification history inside the App's inbox</td>
+          <td><span class="tag tag-temp">Room DB (device only)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Phone Number</strong><br><span style="font-size:0.8rem;color:var(--muted)">Entered during checkout</span></td>
+          <td>Required to process and confirm your food order</td>
+          <td><span class="tag tag-no">Never stored</span></td>
+        </tr>
+        <tr>
+          <td><strong>WebView Session / Cookies</strong><br><span style="font-size:0.8rem;color:var(--muted)">Browser session data from the embedded WebView</span></td>
+          <td>Maintain cart and session state within the web interface</td>
+          <td><span class="tag tag-temp">Device only (session)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Device &amp; OS Info</strong><br><span style="font-size:0.8rem;color:var(--muted)">Android version, model — collected by Firebase</span></td>
+          <td>FCM delivery optimisation and crash diagnostics</td>
+          <td><span class="tag tag-yes">Not stored</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 3. WHAT WE DON'T STORE -->
+  <section class="section" id="nostore">
+    <div class="section-head"><span class="sec-num">03</span><h2>What We Explicitly Do Not Store</h2></div>
+    <p>To be completely clear, the following is <strong style="color:var(--cream)">never collected or retained</strong> by our App or servers:</p>
+    <ul class="plist">
+      <li>Phone numbers — passed through during ordering but never written to any database</li>
+      <li>GPS or approximate location data</li>
+      <li>Camera or microphone access of any kind</li>
+      <li>Device contacts, calendar, or file storage</li>
+      <li>Payment or financial information (handled externally)</li>
+      <li>Biometric or health data</li>
+      <li>Browsing history outside this App</li>
+    </ul>
+  </section>
+
+  <!-- 4. TECHNOLOGIES -->
+  <section class="section" id="tech">
+    <div class="section-head"><span class="sec-num">04</span><h2>Technologies &amp; SDKs Used</h2></div>
+    <p>Our App is built with the following components, each with distinct data behaviour:</p>
+
+    <div class="tech-row">
+      <span class="pill">Android WebView</span>
+      <span class="pill">Firebase Cloud Messaging</span>
+      <span class="pill">Cloud Firestore</span>
+      <span class="pill">Room Database</span>
+      <span class="pill">Splash Screen API</span>
+    </div>
+
+    <div class="hl-box">
+      <strong>Firebase (Google LLC)</strong> — FCM and Firestore are Google services. Firebase may collect device identifiers and operational data governed by Google's Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>. We use Firebase exclusively for notification delivery — not for analytics or advertising purposes.
+    </div>
+
+    <div class="hl-box">
+      <strong>Android WebView</strong> — Loads our restaurant website. May store session cookies locally, the same way a browser would. We do not inject scripts to harvest personal data. Clearing app data removes all WebView cookies and cache.
+    </div>
+
+    <div class="hl-box">
+      <strong>Room Database (on-device only)</strong> — Notification records (title, message, time) are stored in a local SQLite database via Android Room. This data never leaves your device and is permanently deleted when you uninstall the App.
+    </div>
+
+    <div class="hl-box">
+      <strong>Splash Screen API</strong> — Used only for the branded launch animation. It does not collect or transmit any data.
+    </div>
+  </section>
+
+  <!-- 5. NOTIFICATIONS -->
+  <section class="section" id="notifications">
+    <div class="section-head"><span class="sec-num">05</span><h2>Push Notifications (FCM)</h2></div>
+    <p>We use Firebase Cloud Messaging to send notifications about your orders and restaurant updates. Your device is assigned an <strong style="color:var(--cream)">FCM token</strong> — a randomly generated identifier tied to the app install, not to your identity.</p>
+    <ul class="plist">
+      <li>The FCM token is stored in Firestore solely to route notifications to your device</li>
+      <li>Tokens are rotated automatically by Firebase and refreshed on reinstall</li>
+      <li>You can disable notifications anytime via Android Settings → Apps → [App Name] → Notifications</li>
+      <li>Disabling notifications has no effect on your ability to browse or order</li>
+    </ul>
+  </section>
+
+  <!-- 6. THIRD PARTIES -->
+  <section class="section" id="thirdparty">
+    <div class="section-head"><span class="sec-num">06</span><h2>Third-Party Sharing</h2></div>
+    <p>We do not sell, rent, or share your personal information with third parties. The only external service this App communicates with is <strong style="color:var(--cream)">Google Firebase</strong> (for FCM and Firestore), governed by Google's Terms of Service.</p>
+    <p>We do not integrate advertising networks, social login SDKs, third-party analytics tools, or any other external data processors beyond Firebase.</p>
+  </section>
+
+  <!-- 7. RETENTION -->
+  <section class="section" id="retention">
+    <div class="section-head"><span class="sec-num">07</span><h2>Data Retention</h2></div>
+    <ul class="plist">
+      <li><strong style="color:var(--cream)">FCM Tokens (Firestore):</strong> Retained while the App is installed and notifications are enabled. Removed when you uninstall the App or revoke notification permission</li>
+      <li><strong style="color:var(--cream)">Notification History (Room DB):</strong> On-device only. Persists until you clear app data or uninstall. We have no access to this data</li>
+      <li><strong style="color:var(--cream)">Phone Numbers:</strong> Never stored — zero retention</li>
+      <li><strong style="color:var(--cream)">WebView Cache / Cookies:</strong> Managed by Android's WebView engine and cleared when you clear app data</li>
+    </ul>
+  </section>
+
+  <!-- 8. SECURITY -->
+  <section class="section" id="security">
+    <div class="section-head"><span class="sec-num">08</span><h2>Security</h2></div>
+    <p>We apply appropriate safeguards to protect the limited data we handle:</p>
+    <ul class="plist">
+      <li>All App-to-server communication uses HTTPS / TLS encryption</li>
+      <li>Firestore security rules limit FCM token access to authorised server operations only</li>
+      <li>The Room database resides in the App's private storage, inaccessible to other apps</li>
+      <li>We do not store passwords, payment credentials, or sensitive personal data anywhere in the App</li>
+    </ul>
+    <p>No digital system is entirely secure. If you discover a potential vulnerability, please contact us immediately using the details below.</p>
+  </section>
+
+  <!-- 9. CHILDREN -->
+  <section class="section" id="children">
+    <div class="section-head"><span class="sec-num">09</span><h2>Children's Privacy</h2></div>
+    <p>This App is not directed at children under the age of <strong style="color:var(--cream)">13</strong>. We do not knowingly collect personal information from children. If you believe a child has used the App and inadvertently provided personal data, please contact us and we will promptly take corrective action.</p>
+  </section>
+
+  <!-- 10. YOUR RIGHTS -->
+  <section class="section" id="rights">
+    <div class="section-head"><span class="sec-num">10</span><h2>Your Rights</h2></div>
+    <p>Even with minimal data collection, you retain the following rights:</p>
+    <div class="rights-grid">
+      <div class="right-card">
+        <strong>🔍 Access</strong>
+        <p>Request details of any personal data we hold about you</p>
+      </div>
+      <div class="right-card">
+        <strong>🗑️ Deletion</strong>
+        <p>Request removal of your FCM token from Firestore. On-device data can be wiped by clearing app data</p>
+      </div>
+      <div class="right-card">
+        <strong>⛔ Opt-Out</strong>
+        <p>Disable push notifications anytime via Android system settings</p>
+      </div>
+      <div class="right-card">
+        <strong>📋 Portability</strong>
+        <p>Request a copy of any data associated with your device token</p>
+      </div>
+    </div>
+    <p style="margin-top:18px;">To exercise any right, contact us at the details below. We will respond within <strong style="color:var(--cream)">30 days</strong>. You may also lodge a complaint with your local data protection authority.</p>
+  </section>
+
+  <!-- 11. CHANGES -->
+  <section class="section" id="changes">
+    <div class="section-head"><span class="sec-num">11</span><h2>Changes to This Policy</h2></div>
+    <p>We may update this Privacy Policy when our practices change or to meet new legal requirements. Material changes will be communicated via an in-app notification. The "Last Updated" date at the top will always reflect the most recent version. Continued use of the App after any changes constitutes your acceptance of the revised policy.</p>
+  </section>
+
+  <!-- 12. CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-head"><span class="sec-num">12</span><h2>Contact Us</h2></div>
+    <p>For any questions, data requests, or privacy concerns:</p>
+    <div class="contact-box">
+      <p>
+        <strong style="color:var(--cream)">FoodyVilla</strong><br>
+        📧 &nbsp;<a href="mailto:lprivacy.foodyvilla.in@gmail.com">privacy.foodyvilla.in@gmail.com</a><br>
+        🏢 &nbsp;Nagari, Dhamtari, Chhattisgarh, India<br>
+        🌐 &nbsp;<a href="#">www.foodyvilla.in</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 <strong>[Your Company Name]</strong>. All rights reserved.</p>
+  <p style="margin-top:6px;">Compliant with Google Play Data Safety requirements · GDPR · India IT Act 2000 &amp; DPDP Act 2023</p>
+</footer>
+
+</body>
+</html>
